@@ -3,80 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guard Shield AI | Advanced Protection</title>
+    <title>Guard Shield AI | Enterprise Security</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-black text-white font-['Inter'] overflow-x-hidden">
+<body class="bg-[#050505] text-white selection:bg-blue-500/30">
 
-    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px]"></div>
-    </div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-50 transition-all duration-150"></div>
 
-    <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto border-b border-white/10">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold">G</div>
-            <span class="text-xl font-bold tracking-tight">GuardShield AI</span>
+    <nav class="fixed w-full z-40 border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <span class="text-xl font-bold tracking-tighter">GUARDSHIELD</span>
+            </div>
+            <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full font-medium transition active:scale-95">Get Started</button>
         </div>
-        <div class="hidden md:flex gap-8 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Features</a>
-            <a href="#" class="hover:text-white transition">Solutions</a>
-            <a href="#" class="hover:text-white transition">Pricing</a>
-        </div>
-        <button class="bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
-            Get Started
-        </button>
     </nav>
 
-    <header class="max-w-4xl mx-auto text-center mt-24 px-6">
-        <span class="px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-medium uppercase tracking-widest">
-            Next-Gen Security
-        </span>
-        <h1 class="text-5xl md:text-7xl font-bold mt-8 mb-6 leading-tight">
-            Protect your digital assets with <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">AI Intelligence</span>
-        </h1>
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Guard Shield AI provides real-time threat detection and automated response to keep your infrastructure safe from modern cyber attacks.
-        </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <button class="bg-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Start Free Trial</button>
-            <button class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition">View Demo</button>
-        </div>
-    </header>
-
-    <section class="max-w-7xl mx-auto px-8 py-32 grid md:grid-cols-3 gap-8">
-        <div class="feature-card p-8 rounded-2xl border border-white/10 bg-white/5 hover:border-blue-500/50 transition-all duration-300">
-            <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 text-blue-400">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+    <main class="pt-32 pb-20 px-6">
+        <section class="max-w-5xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tight">Secure your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Future</span></h1>
+            <p class="text-gray-400 text-xl max-w-2xl mx-auto mb-12">Automated threat detection powered by the world's most advanced AI models.</p>
+            
+            <div class="bg-white/5 border border-white/10 p-8 rounded-3xl max-w-lg mx-auto backdrop-blur-xl">
+                <div id="status-text" class="text-sm font-mono mb-4 text-blue-400 uppercase tracking-widest">System Ready</div>
+                <div class="h-2 bg-white/10 rounded-full overflow-hidden mb-8">
+                    <div id="scan-bar" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
+                </div>
+                <button id="scan-init" class="w-full bg-white text-black py-4 rounded-xl font-bold hover:invert transition">Run AI Security Audit</button>
             </div>
-            <h3 class="text-xl font-bold mb-3">Real-time Shield</h3>
-            <p class="text-gray-400 leading-relaxed">Instant protection against zero-day vulnerabilities using our proprietary AI model.</p>
-        </div>
-
-        <div class="feature-card p-8 rounded-2xl border border-white/10 bg-white/5 hover:border-purple-500/50 transition-all duration-300">
-            <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6 text-purple-400">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Fast Integration</h3>
-            <p class="text-gray-400 leading-relaxed">Deploy Guard Shield in minutes with our one-line SDK and cloud-native support.</p>
-        </div>
-
-        <div class="feature-card p-8 rounded-2xl border border-white/10 bg-white/5 hover:border-green-500/50 transition-all duration-300">
-            <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-6 text-green-400">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Threat Analytics</h3>
-            <p class="text-gray-400 leading-relaxed">Detailed dashboards providing deep insights into your network's security health.</p>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
