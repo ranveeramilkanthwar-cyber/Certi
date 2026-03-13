@@ -1,24 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Navbar Scroll Effect
-    const nav = document.querySelector('nav');
+    const navbar = document.getElementById('navbar');
+    const scrollBar = document.getElementById('scroll-progress');
+    const scanBtn = document.getElementById('scan-init');
+    const scanBar = document.getElementById('scan-bar');
+    const statusText = document.getElementById('status-text');
+
+    // 1. Scroll Logic (Progress Bar & Nav)
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('bg-black/80', 'backdrop-blur-md');
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollBar.style.width = scrolled + "%";
+
+        if (window.scrollY > 20) {
+            navbar.classList.add('nav-scrolled');
         } else {
-            nav.classList.remove('bg-black/80', 'backdrop-blur-md');
+            navbar.classList.remove('nav-scrolled');
         }
     });
 
-    // 2. Simple Button Click Interaction
-    const primaryBtn = document.querySelector('button.bg-blue-600');
-    primaryBtn.addEventListener('click', () => {
-        alert('Initializing Guard Shield AI Secure Terminal...');
+    // 2. Functional AI Scan Simulator
+    scanBtn.addEventListener('click', () => {
+        if (scanBtn.disabled) return;
+        
+        scanBtn.disabled = true;
+        scanBtn.innerText = "Analyzing Traffic...";
+        statusText.classList.add('pulse-text');
+        
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 15;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                completeScan();
+            }
+            scanBar.style.width = progress + "%";
+            statusText.innerText = `Scanning: ${Math.floor(progress)}%`;
+        }, 200);
     });
 
-    // 3. Staggered Animation for Cards
-    const cards = document.querySelectorAll('.feature-card');
-    cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
-    });
+    function completeScan() {
+        statusText.classList.remove('pulse-text');
+        statusText.innerText = "✓ 0 Threats Detected";
+        statusText.classList.replace('text-blue-400', 'text-green-400');
+        scanBtn.innerText = "Audit Complete";
+        scanBtn.classList.add('bg-green-600', 'text-white');
+        
+        setTimeout(() => {
+            alert("Security Report: Your environment is currently protected by Guard Shield AI.");
+        }, 500);
+    }
 });
 
